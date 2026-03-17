@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jaque Souza | Personal Trainer</title>
+  <meta name="description" content="Landing page da personal trainer Jaque Souza com foco em emagrecimento, definição corporal, saúde e transformação real.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' rx='16' fill='%230B0B0B'/%3E%3Ctext x='40' y='52' font-family='Arial' font-size='34' text-anchor='middle' fill='%23C6A15B'%3EJS%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --black: #0B0B0B;
+      --black-2: #111111;
+      --gold: #C6A15B;
+      --gold-soft: #D7B97A;
+      --white: #F5F5F5;
+      --gray: #B8B8B8;
+      --line: rgba(215, 185, 122, 0.22);
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, "Open Sans", "Segoe UI", Roboto, Arial, sans-serif;
+      background: radial-gradient(circle at 20% -10%, rgba(198, 161, 91, 0.2), transparent 40%),
+                  radial-gradient(circle at 85% 10%, rgba(215, 185, 122, 0.15), transparent 38%),
+                  var(--black);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: Montserrat, Poppins, "Segoe UI", sans-serif;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1140px, 92%);
+      margin: 0 auto;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+      background: rgba(11, 11, 11, 0.88);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.08rem;
+      letter-spacing: 0.08em;
+    }
+
+    .logo span { color: var(--gold); }
+
+    .nav {
+      display: flex;
+      gap: 20px;
+      color: var(--gray);
+      font-size: 0.92rem;
+    }
+
+    .nav a:hover { color: var(--gold-soft); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+      color: var(--black);
+      box-shadow: 0 15px 35px rgba(198, 161, 91, 0.3);
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); }
+
+    .btn-outline {
+      border-color: var(--line);
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold-soft);
+      color: var(--gold-soft);
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 90px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .hero {
+      padding-top: 150px;
+      min-height: 95vh;
+      display: grid;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: .8rem;
+      color: var(--gold-soft);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      margin-bottom: 16px;
+    }
+
+    .highlight {
+      color: var(--gold-soft);
+      text-shadow: 0 0 24px rgba(198, 161, 91, 0.35);
+    }
+
+    .hero p {
+      color: var(--gray);
+      max-width: 640px;
+      margin-bottom: 26px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .support-text {
+      color: var(--gray);
+      font-size: .95rem;
+    }
+
+    .hero-image {
+      min-height: 520px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: linear-gradient(160deg, rgba(198,161,91,0.24), rgba(17,17,17,0.8)),
+                  repeating-linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.03) 8px, transparent 8px, transparent 22px),
+                  #131313;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      place-items: end start;
+      padding: 26px;
+    }
+
+    .hero-image::before {
+      content: "Jaque Souza";
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      font-weight: 700;
+      color: var(--gold-soft);
+      letter-spacing: .08em;
+      font-size: .9rem;
+    }
+
+    .hero-image .tag {
+      background: rgba(11,11,11,.72);
+      border: 1px solid var(--line);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: .84rem;
+      color: var(--white);
+    }
+
+    .impact-quote {
+      margin-top: 28px;
+      padding: 20px;
+      border-left: 3px solid var(--gold);
+      background: rgba(255,255,255,0.02);
+      border-radius: 0 10px 10px 0;
+      font-size: 1.15rem;
+      font-weight: 600;
+      max-width: 720px;
+    }
+
+    .title {
+      font-size: clamp(1.6rem, 2.8vw, 2.5rem);
+      margin-bottom: 18px;
+    }
+
+    .subtitle {
+      color: var(--gray);
+      max-width: 790px;
+      margin-bottom: 28px;
+    }
+
+    .grid-3, .grid-2 {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .card {
+      background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+      color: var(--gold-soft);
+    }
+
+    .card p, .card li {
+      color: var(--gray);
+      font-size: .97rem;
+    }
+
+    .list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .list li::before {
+      content: "✦ ";
+      color: var(--gold);
+      margin-right: 4px;
+    }
+
+    .authority-quote {
+      margin-top: 20px;
+      font-size: 1.1rem;
+      color: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px 20px;
+      background: rgba(198, 161, 91, 0.08);
+      display: inline-block;
+    }
+
+    .method-pillar {
+      text-align: center;
+      padding: 24px 16px;
+    }
+
+    .method-pillar .number {
+      display: inline-grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      margin-bottom: 12px;
+      color: var(--gold-soft);
+      font-weight: 700;
+    }
+
+    .testimonials blockquote {
+      color: var(--white);
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .testimonials cite {
+      color: var(--gold-soft);
+      font-style: normal;
+      font-size: .95rem;
+    }
+
+    .stats {
+      margin-top: 24px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .stat {
+      text-align: center;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: var(--gray);
+      background: rgba(255,255,255,0.015);
+    }
+
+    .about-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .badge {
+      border: 1px solid var(--line);
+      color: var(--gold-soft);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: .88rem;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .accordion-item {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.015);
+    }
+
+    .accordion-btn {
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      border: none;
+      color: var(--white);
+      padding: 16px 18px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .accordion-btn span { color: var(--gold-soft); }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease;
+      color: var(--gray);
+      padding: 0 18px;
+    }
+
+    .accordion-item.active .accordion-content {
+      max-height: 180px;
+      padding-bottom: 16px;
+    }
+
+    .cta-final {
+      background: linear-gradient(155deg, rgba(198, 161, 91, 0.16), rgba(17,17,17,0.85));
+      border: 1px solid var(--line);
+      border-radius: calc(var(--radius) + 6px);
+      text-align: center;
+      padding: 54px 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .footer {
+      padding: 40px 0 80px;
+      color: var(--gray);
+      font-size: .95rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 18px;
+    }
+
+    .footer strong { color: var(--white); }
+
+    .whats-float {
+      position: fixed;
+      right: 18px;
+      bottom: 20px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #25d366, #1aa84f);
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+      z-index: 1000;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .nav { display: none; }
+      .hero-grid, .grid-3, .grid-2, .footer-grid, .stats { grid-template-columns: 1fr; }
+      .hero-image { min-height: 360px; }
+      .hero { min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#home" class="logo">JAQUE <span>SOUZA</span></a>
+      <nav class="nav">
+        <a href="#autoridade">Autoridade</a>
+        <a href="#metodo">Método</a>
+        <a href="#depoimentos">Resultados</a>
+        <a href="#sobre">Sobre</a>
+      </nav>
+      <a class="btn btn-outline" href="https://wa.me/5500000000000?text=Ol%C3%A1%2C+quero+come%C3%A7ar+meu+processo+com+a+Jaque" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero reveal">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">MÉTODO, DISCIPLINA E RESULTADO</span>
+          <h1><span class="highlight">Seu corpo é o reflexo do seu estilo de vida</span></h1>
+          <p>Treinar não é só estética. Também é saúde. É autoestima, disciplina e transformação real. Com método certo, acompanhamento de verdade e estratégia, você pode conquistar o corpo, a energia e a confiança que procura.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/5500000000000?text=Quero+fazer+parte+do+time+da+Jaque" target="_blank" rel="noopener">Quero fazer parte do time da Jaque</a>
+            <a class="btn btn-outline" href="#depoimentos">Ver resultados reais</a>
+          </div>
+          <p class="support-text">Treinamento presencial e online para mulheres que querem mudança de verdade.</p>
+          <div class="impact-quote">Treinar não é só estética. Também é <span class="highlight">saúde</span>.</div>
+        </div>
+        <div class="hero-image">
+          <span class="tag">Espaço reservado para foto profissional da Jaque</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="autoridade" class="reveal">
+      <div class="container">
+        <h2 class="title">Sua transformação precisa de <span class="highlight">método</span>, não de tentativa</h2>
+        <p class="subtitle">Jaque Souza atua com foco em emagrecimento, definição corporal e evolução sustentável. Seu trabalho une estratégia, acompanhamento e treino com direção clara para mulheres que querem resultado sem perder tempo com tentativas frustradas.</p>
+        <div class="grid-3">
+          <article class="card"><h3>Atendimento híbrido</h3><p>Presencial e online com organização profissional para rotina real.</p></article>
+          <article class="card"><h3>Foco em objetivo</h3><p>Emagrecimento e definição com abordagem personalizada e inteligente.</p></article>
+          <article class="card"><h3>Acompanhamento próximo</h3><p>Suporte contínuo para manter disciplina e acelerar sua evolução.</p></article>
+          <article class="card"><h3>Estratégia personalizada</h3><p>Treino pensado para seu momento, limite e meta específica.</p></article>
+          <article class="card"><h3>Consistência e direção</h3><p>Método claro para sair do ciclo de começar e parar.</p></article>
+          <article class="card"><h3>Base real</h3><p>Resultado com processo estruturado, sem achismo e sem extremos.</p></article>
+        </div>
+        <p class="authority-quote">Aqui não é sobre treinar por treinar. É sobre construir resultado.</p>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="container">
+        <h2 class="title">Se você se identifica com isso, essa página é para você</h2>
+        <div class="grid-3">
+          <article class="card"><p>Já tentou treinar várias vezes e não conseguiu manter constância.</p></article>
+          <article class="card"><p>Quer emagrecer, mas sente que faz tudo sozinha.</p></article>
+          <article class="card"><p>Deseja definir o corpo com acompanhamento de verdade.</p></article>
+          <article class="card"><p>Sente que precisa de mais energia, saúde e autoestima.</p></article>
+          <article class="card"><p>Quer um plano que funcione na vida real.</p></article>
+          <article class="card"><p>Está cansada de começar e parar.</p></article>
+        </div>
+        <p class="authority-quote">O problema não é a sua falta de força. Muitas vezes, é a falta de método.</p>
+      </div>
+    </section>
+
+    <section id="metodo" class="reveal">
+      <div class="container">
+        <h2 class="title">Método JS Transformação Real</h2>
+        <p class="subtitle">Cada mulher possui uma rotina, um corpo e um objetivo. Por isso, a condução do processo precisa ser individualizada, inteligente e sustentável. O método da Jaque organiza o caminho para que o resultado deixe de ser tentativa e passe a ser construção.</p>
+        <div class="grid-2">
+          <article class="card method-pillar"><div class="number">01</div><h3>Avaliação e estratégia</h3><p>Diagnóstico claro para estruturar o melhor caminho.</p></article>
+          <article class="card method-pillar"><div class="number">02</div><h3>Treino direcionado</h3><p>Execução com propósito e ajuste ao seu objetivo.</p></article>
+          <article class="card method-pillar"><div class="number">03</div><h3>Acompanhamento constante</h3><p>Suporte próximo para manter ritmo e confiança.</p></article>
+          <article class="card method-pillar"><div class="number">04</div><h3>Evolução com consistência</h3><p>Processo contínuo para gerar transformação sustentável.</p></article>
+        </div>
+        <p class="authority-quote">Método com ciência. Resultado de verdade.</p>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="container">
+        <h2 class="title">O que muda quando você treina com direção</h2>
+        <div class="grid-3">
+          <article class="card"><p>Emagrecimento com mais consistência.</p></article>
+          <article class="card"><p>Corpo mais definido e forte.</p></article>
+          <article class="card"><p>Mais disposição no dia a dia.</p></article>
+          <article class="card"><p>Mais autoestima e autoconfiança.</p></article>
+          <article class="card"><p>Melhora da disciplina e da rotina.</p></article>
+          <article class="card"><p>Sensação real de evolução.</p></article>
+        </div>
+        <p class="subtitle" style="margin-top:18px;">A transformação não acontece só no espelho. Ela aparece na postura, na energia, na confiança e na forma como você se enxerga.</p>
+      </div>
+    </section>
+
+    <section id="depoimentos" class="reveal testimonials">
+      <div class="container">
+        <h2 class="title">Resultados reais de mulheres reais</h2>
+        <div class="grid-3">
+          <article class="card"><blockquote>“Com a Jaque eu parei de começar e desistir. Passei a treinar com objetivo e pela primeira vez senti meu corpo respondendo.”</blockquote><cite>— Mariana, 32 anos</cite></article>
+          <article class="card"><blockquote>“Eu achava que nunca conseguiria manter constância. Hoje me sinto mais forte, mais leve e muito mais confiante.”</blockquote><cite>— Paula, 29 anos</cite></article>
+          <article class="card"><blockquote>“O diferencial é que existe método, acompanhamento e direção. Não é só treino, é transformação.”</blockquote><cite>— Fernanda, 36 anos</cite></article>
+          <article class="card"><blockquote>“Meu treino finalmente se encaixou na minha rotina. Hoje tenho energia e vejo evolução toda semana.”</blockquote><cite>— Camila, 34 anos</cite></article>
+          <article class="card"><blockquote>“Antes eu me sentia perdida. Agora sei exatamente o que fazer e estou muito mais disciplinada.”</blockquote><cite>— Juliana, 31 anos</cite></article>
+          <article class="card"><blockquote>“Comecei por estética e descobri mais saúde, foco e confiança em mim.”</blockquote><cite>— Renata, 38 anos</cite></article>
+        </div>
+        <div class="grid-3 stats">
+          <div class="stat">Atendimento presencial e online</div>
+          <div class="stat">Treinos com estratégia individual</div>
+          <div class="stat">Foco em resultado real</div>
+          <div class="stat">Evolução com constância</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="reveal">
+      <div class="container">
+        <h2 class="title">Prazer, eu sou Jaque Souza</h2>
+        <p class="subtitle">Sou personal trainer e acredito que resultado de verdade não nasce de fórmulas prontas. Ele nasce de estratégia, consistência, acompanhamento e decisão. Meu trabalho é ajudar mulheres a conquistarem emagrecimento, definição corporal, saúde, confiança e uma rotina mais forte, com um processo possível, inteligente e sustentável. Mais do que treinar, eu conduzo transformação.</p>
+        <div class="about-badges">
+          <span class="badge">Personal trainer</span>
+          <span class="badge">Atendimento presencial e online</span>
+          <span class="badge">Especialista em evolução feminina com método</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="container">
+        <h2 class="title">Talvez você esteja pensando nisso agora</h2>
+        <div class="grid-2">
+          <div class="accordion-item active">
+            <button class="accordion-btn" type="button">“Eu não tenho tempo.” <span>+</span></button>
+            <div class="accordion-content"><p>O treino precisa funcionar na sua vida real. A estratégia é construída para encaixar na sua rotina com inteligência.</p></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn" type="button">“Eu já tentei outras vezes.” <span>+</span></button>
+            <div class="accordion-content"><p>Tentar sem direção desgasta. Quando existe método, acompanhamento e clareza, o processo muda.</p></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn" type="button">“Tenho vergonha de começar.” <span>+</span></button>
+            <div class="accordion-content"><p>Você não precisa chegar pronta. Precisa apenas começar da forma certa, com suporte e acolhimento.</p></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn" type="button">“Não sei se vou conseguir.” <span>+</span></button>
+            <div class="accordion-content"><p>Você não precisa fazer tudo sozinha. Com orientação certa, o resultado deixa de parecer distante.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="container cta-final">
+        <h2 class="title">Seu novo resultado começa com uma decisão</h2>
+        <p class="subtitle">Se você quer emagrecer, definir o corpo, melhorar sua autoestima e viver um processo com método e verdade, esse é o momento de dar o primeiro passo.</p>
+        <a class="btn btn-primary" href="https://wa.me/5500000000000?text=Quero+come%C3%A7ar+agora" target="_blank" rel="noopener">Quero começar agora</a>
+        <p class="support-text" style="margin-top: 12px;">Atendimento presencial e online</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><strong>Jaque Souza</strong><br>Personal Trainer<br>Presencial e Online</div>
+        <div>WhatsApp<br>Instagram<br>Cidade/Região</div>
+        <div>Método, constância e resultado real.</div>
+      </div>
+    </div>
+  </footer>
+
+  <a class="whats-float" href="https://wa.me/5500000000000?text=Ol%C3%A1%2C+quero+informa%C3%A7%C3%B5es+sobre+os+treinos" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">WA</a>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    document.querySelectorAll('.accordion-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
