@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Jaqueline Souza — Nutrição & Treinamento</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+   --ouro:#B08B57;
+  --ouro2:#C8A26A;
+  --ouro3:#D8BC8C;
+  --ouro4:#EAD8B4;
+  --ouro5:#F6EFE2;
+
+  --sage:#7E8B72;
+  --sage2:#A1AE92;
+  --sage3:#DCE5D2;
+  --sage4:#F1F5EC;
+
+  --bg:#F9F6F1;
+  --bg2:#F3EEE6;
+  --bg3:#E8DECF;
+
+  --txt:#2D2418;
+  --txt2:#4B3A24;
+  --txt3:#74614A;
+  --txt4:#AA9576;
+  --perg:#F6EFE2;
+
+  --borda:rgba(176,139,87,.18);
+  --borda2:rgba(176,139,87,.35);
+
+  --sombra:0 4px 24px rgba(176,139,87,.12);
+  --sombra2:0 12px 40px rgba(0,0,0,.08);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:'Nunito Sans',sans-serif;font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+.fi{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.fi.v{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.4s}
+
+/* ══ NAV ══ */
+nav{position:fixed;top:0;width:100%;z-index:300;background:rgba(250,247,240,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--borda);padding:.8rem 5%;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 20px rgba(143,119,66,.07)}
+.nav-logo{display:flex;align-items:center;gap:.7rem}
+.nav-nome{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--ouro);letter-spacing:.06em;font-weight:700;text-shadow:0 1px 8px rgba(143,119,66,.18)}
+.nav-nome em{font-style:italic;color:var(--txt2);font-weight:400}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--txt3);font-weight:600;transition:color .2s}
+.nav-links a:hover{color:var(--ouro)}
+.nav-cta{background:var(--ouro);color:#fff;padding:.5rem 1.5rem;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;border-radius:6px;transition:all .25s;box-shadow:var(--sombra)}
+.nav-cta:hover{background:var(--ouro2);transform:translateY(-1px)}
+
+/* ══ HERO ══ */
+.hero{
+  position:relative;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:3rem;
+  align-items:center;
+  min-height:100vh;
+  padding:5rem 5%;
+  border-radius:40px;
+  background:radial-gradient(circle,rgba(126,139,114,.10) 0%,transparent 70%);
+  overflow:hidden;
+}
+
+.hero::after{
+  content:'';
+  position:absolute;
+  bottom:-10%;
+  left:-5%;
+  width:400px;
+  height:400px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(176,139,87,.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+
+.hero-esq{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:4rem 3% 4rem 5%;
+  z-index:2;
+  max-width:560px;
+}
+
+.hero-logo{
+  width:200px;
+  max-width:100%;
+  margin-bottom:1.4rem;
+  object-fit:contain;
+  filter:drop-shadow(0 10px 30px rgba(176,139,87,.15));
+}
+
+.hero-h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.8rem,5vw,5.2rem);
+  line-height:1.05;
+  color:var(--txt);
+  margin-bottom:1.2rem;
+  font-weight:700;
+  white-space:normal;
+  word-break:break-word;
+}
+
+.hero-h1 em{
+  font-style:italic;
+  color:var(--ouro);
+  font-weight:400;
+}
+
+.hero-desc{
+  font-size:.95rem;
+  line-height:1.9;
+  color:var(--txt3);
+  max-width:430px;
+  margin-bottom:2.5rem;
+}
+
+.hero-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--ouro);
+  color:#fff;
+  padding:.85rem 1.8rem;
+  font-size:.82rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:700;
+  border-radius:10px;
+  transition:all .28s;
+  box-shadow:var(--sombra);
+}
+
+.hero-btn:hover{background:var(--ouro2);transform:translateY(-1px);}
+
+.hero-foto-bg{
+  position:absolute;
+  bottom:0;
+  left:5%;
+  right:-5%;
+  top:5%;
+  background:var(--sage4);
+  border-radius:38px;
+  overflow:hidden;
+}
+
+.hero-foto-bg::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to top,
+    rgba(0,0,0,.18),
+    transparent 40%
+  );
+}
+
+.hero-foto-bg img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+}
+
+.logo-mini{
+  width:42px;
+  height:42px;
+  object-fit:contain;
+}
+
+
+  .sobre-foto{
+    height:320px;
+  }
+
+  .pergaminho,
+  .faq-perg{
+    padding:2rem 1.4rem;
+    border-radius:20px;
+  }
+
+  .svc-circle{
+    width:44px;
+    height:44px;
+  }
+
+  .transf-card,
+  .dep,
+  .dif-card{
+    padding:1.4rem;
+  }
+
+  .footer-bot{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .f-desc{
+    max-width:100%;
+  }
+
+
+@media (max-width: 480px){
+
+  .hero-h1{
+    font-size:2.4rem;
+  }
+
+  .hero-cat{
+    font-size:.58rem;
+    letter-spacing:.2em;
+  }
+
+  .hero-btn{
+    width:100%;
+    text-align:center;
+  }
+
+  .hero-stats{
+    gap:1rem;
+  }
+
+  .hs-n{
+    font-size:1.5rem;
+  }
+
+  .hs-l{
+    font-size:.55rem;
+  }
+
+  .perg-h,
+  .sec-h,
+  .faq-h,
+  .agendar-h{
+    font-size:2rem;
+  }
+
+  .form-card{
+    padding:1.4rem;
+  }
+
+  .ticker{
+    display:none;
+  }
+
+  .hero{
+    display:block;
+    min-height:auto;
+    padding:4rem 5% 2rem;
+    border-radius:0 0 30px 30px;
+  }
+
+  .hero-esq{
+    padding:0;
+    margin-bottom:2rem;
+  }
+
+  .hero-dir{
+    min-height:420px;
+    display:block;
+  }
+
+  .hero-foto-bg{
+    position:relative;
+    top:auto;
+    left:auto;
+    right:auto;
+    bottom:auto;
+    width:100%;
+    height:420px;
+    border-radius:24px;
+    margin:0 auto;
+  }
+
+  .hero-foto-bg::after{
+    display:none;
+  }
+
+  .hero-float{
+    position:relative;
+    top:auto;
+    right:auto;
+    left:auto;
+    bottom:auto;
+    width:auto;
+    margin:1rem 0 0;
+  }
+
+  .hero-float + .hero-float{
+    margin-top:1rem;
+  }
+
+  .hero-stats{
+    flex-wrap:wrap;
+    justify-content:flex-start;
+  }
+
+  .hero-stats .hs-item{
+    flex:1 1 45%;
+    min-width:140px;
+  }
+
+}
+
+
+/* STATS: sem número de pacientes */
+.hero-stats{display:flex;gap:2.5rem}
+.hs-item{text-align:center}
+.hs-n{font-family:'Cormorant Garamond',serif;font-size:1.9rem;color:var(--ouro);display:block;line-height:1;font-weight:700;text-shadow:0 1px 8px rgba(143,119,66,.15)}
+.hs-l{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--txt4);margin-top:.2rem;display:block;font-weight:600}
+.hero-dir{position:relative;overflow:visible;display:flex;align-items:center;justify-content:center;min-height:700px;padding-top:1rem;}
+.hero-foto-bg{position:relative;width:100%;max-width:620px;height:620px;background:var(--sage4);border-radius:38px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.08);}
+.hero-foto-bg img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.hero-foto-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top, rgba(249,246,241,.95) 0%, transparent 45%);pointer-events:none;}
+.hero-float{position:absolute;background:#fff;border-radius:14px;box-shadow:var(--sombra2);padding:.9rem 1.2rem;border:1px solid rgba(232,222,206,.8)}
+.hf1{top:12%;right:-2%;width:145px}
+.hf2{top:40%;right:-3%;width:140px}
+.hf3{bottom:20%;left:-2%;width:135px}
+.hf-num{font-family:'Cormorant Garamond',serif;font-size:.65rem;color:var(--ouro3);font-weight:700;display:block;margin-bottom:.2rem}
+.hf-txt{font-size:.62rem;color:var(--txt2);font-weight:700;line-height:1.3}
+.hf-sub{font-size:.55rem;color:var(--txt4);margin-top:.15rem;display:block}
+
+/* ══ TICKER ══ */
+.ticker{background:var(--bg3);border-top:1px solid var(--borda);border-bottom:1px solid var(--borda);padding:.6rem 0;overflow:hidden}
+.ticker-track{display:flex;white-space:nowrap;animation:tick 35s linear infinite}
+.tick-item{display:inline-flex;align-items:center;gap:.7rem;padding:0 1.4rem;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--txt3);font-weight:600}
+.tick-ico{font-size:.85rem;flex-shrink:0}
+.tick-dot{width:4px;height:4px;background:var(--ouro3);border-radius:50%;flex-shrink:0}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ══ SOBRE ══ */
+.sobre{background:var(--bg);padding:7rem 5%}
+.sobre-inner{display:grid;grid-template-columns:1fr 1fr;gap:4%;align-items:center;max-width:1100px;margin:0 auto}
+.sobre-card{background:var(--bg2);border-radius:24px;overflow:hidden;padding:2rem 2rem 0;position:relative;box-shadow:var(--sombra)}
+.sobre-card-topo{display:flex;align-items:center;gap:.8rem;margin-bottom:1.5rem}
+.sobre-card-logo{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:var(--ouro);font-weight:700}
+.sobre-foto{width:100%;height:380px;object-fit:cover;object-position:center top;border-radius:14px 14px 0 0;display:block}
+.sobre-cat{font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ouro);font-weight:700;display:flex;align-items:center;gap:.5rem;margin-bottom:1rem}
+.sobre-cat::before{content:'';width:1.5rem;height:1.5px;background:var(--ouro3)}
+.sobre-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.12;margin-bottom:1.2rem;font-weight:700;text-shadow:0 2px 12px rgba(42,31,14,.08)}
+.sobre-h em{font-style:italic;color:var(--ouro);font-weight:400}
+.sobre-p{font-size:.88rem;line-height:1.9;color:var(--txt3);margin-bottom:.8rem}
+.sobre-p strong{color:var(--txt2);font-weight:700}
+/* BADGE de registros profissionais */
+.reg-badges{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1rem;margin-bottom:.5rem}
+.reg-badge{background:var(--ouro5);border:1px solid var(--ouro4);border-radius:8px;padding:.35rem .9rem;font-size:.7rem;color:var(--ouro);font-weight:700;letter-spacing:.04em}
+.cred-lista{list-style:none;margin-top:1.2rem;display:grid;gap:.5rem}
+.cred-lista li{display:flex;align-items:center;gap:.6rem;font-size:.82rem;color:var(--txt2);font-weight:400}
+.cred-check{width:18px;height:18px;border-radius:50%;background:var(--sage4);border:1.5px solid var(--sage2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cred-check svg{width:9px;height:9px;stroke:var(--sage);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* ══ METODOLOGIA ══ */
+.metod{background:var(--bg);padding:2rem 5% 5rem}
+.metod-inner{max-width:1100px;margin:0 auto}
+.pergaminho{background:var(--perg);border-radius:28px;padding:4rem 3.5rem;position:relative;overflow:hidden;box-shadow:inset 0 0 60px rgba(139,101,64,.07),var(--sombra)}
+.perg-folha-bg{position:absolute;right:-2rem;bottom:-2rem;opacity:.08;pointer-events:none;font-size:200px;line-height:1}
+.perg-header{text-align:center;margin-bottom:3rem}
+.perg-cat{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ouro);font-weight:700;display:flex;align-items:center;justify-content:center;gap:.5rem;margin-bottom:.8rem}
+.perg-cat::before,.perg-cat::after{content:'';width:1.2rem;height:1.5px;background:var(--ouro3)}
+.perg-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;line-height:1.1;text-shadow:0 2px 12px rgba(42,31,14,.08)}
+.perg-h em{font-style:italic;color:var(--ouro);font-weight:400}
+.perg-p{font-size:.82rem;color:var(--txt3);margin-top:.5rem}
+.perg-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem}
+.perg-card{background:rgba(255,255,255,.7);border:1px solid rgba(196,169,106,.25);border-radius:16px;padding:1.6rem 1.5rem;transition:background .3s,box-shadow .3s;box-shadow:0 2px 12px rgba(139,101,64,.06)}
+.perg-card:hover{background:rgba(255,255,255,.95);box-shadow:var(--sombra2)}
+.pc-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;color:var(--ouro4);font-weight:700;line-height:1;display:block;margin-bottom:.5rem;text-shadow:0 2px 8px rgba(143,119,66,.12)}
+.pc-ico{width:36px;height:36px;background:var(--ouro);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:.8rem;font-size:1rem;box-shadow:0 4px 12px rgba(143,119,66,.25)}
+.pc-h{font-size:.88rem;font-weight:700;color:var(--txt2);margin-bottom:.35rem}
+.pc-p{font-size:.78rem;color:var(--txt3);line-height:1.6}
+
+/* ══ DIFERENCIAIS ══ */
+.diferenciais{background:var(--bg);padding:5rem 5%;position:relative;overflow:hidden}
+.dif-inner{max-width:1100px;margin:0 auto}
+.sec-cat{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ouro);font-weight:700;display:flex;align-items:center;justify-content:center;gap:.5rem;margin-bottom:.8rem}
+.sec-cat::before,.sec-cat::after{content:'';width:1.2rem;height:1.5px;background:var(--ouro3)}
+.sec-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;line-height:1.1;text-align:center;margin-bottom:3rem;text-shadow:0 2px 12px rgba(42,31,14,.08)}
+.sec-h em{font-style:italic;color:var(--ouro);font-weight:400}
+.dif-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.dif-card{background:#fff;border:1px solid rgba(232,222,206,.8);border-radius:16px;padding:1.8rem 1.6rem;transition:transform .3s,box-shadow .3s;box-shadow:0 2px 16px rgba(42,31,14,.05)}
+.dif-card:hover{transform:translateY(-4px);box-shadow:var(--sombra2)}
+.dif-ico{width:38px;height:38px;background:var(--bg2);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1.1rem}
+.dif-h{font-size:.88rem;font-weight:700;color:var(--txt2);margin-bottom:.35rem}
+.dif-p{font-size:.78rem;color:var(--txt3);line-height:1.6}
+
+/* ══ SERVIÇOS CAMINHO ══ */
+.svcs{background:var(--bg2);padding:5rem 5%;position:relative;overflow:hidden}
+.svcs-inner{max-width:900px;margin:0 auto}
+.svcs-wrap{position:relative;margin-top:2.5rem}
+.svcs-path{position:absolute;top:0;left:50%;transform:translateX(-50%);width:200px;pointer-events:none;opacity:.25}
+.svc-row{display:flex;align-items:center;margin-bottom:2rem;gap:2rem}
+.svc-row.right{flex-direction:row-reverse}
+.svc-box{flex:1;background:#fff;border-radius:14px;padding:1.4rem 1.6rem;border:1px solid rgba(232,222,206,.9);transition:border-color .3s,box-shadow .3s;box-shadow:0 2px 16px rgba(42,31,14,.05)}
+.svc-box:hover{border-color:var(--ouro3);box-shadow:var(--sombra)}
+.svc-box-h{font-size:.9rem;font-weight:700;color:var(--txt2);margin-bottom:.3rem}
+.svc-box-p{font-size:.78rem;color:var(--txt3);line-height:1.55}
+.svc-circle{width:52px;height:52px;border-radius:50%;background:var(--bg3);border:2px solid var(--ouro3);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--ouro);flex-shrink:0;box-shadow:0 4px 16px rgba(143,119,66,.18)}
+.svc-box-alt{flex:1;background:var(--sage4);border-radius:14px;padding:1.4rem 1.6rem;border:1px solid var(--sage3);box-shadow:0 2px 16px rgba(42,31,14,.04)}
+.svc-box-alt .svc-box-h{color:var(--sage)}
+.svc-box-alt .svc-box-p{color:var(--sage2)}
+
+/* ══ TRANSFORMAÇÕES ══ */
+.transf{background:#6b4c2a;padding:5rem 5%;position:relative;overflow:hidden}
+.transf::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(139,101,64,.4) 0%,transparent 70%)}
+.transf-inner{max-width:1000px;margin:0 auto;position:relative;z-index:2}
+.transf-cat{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ouro4);font-weight:700;display:flex;align-items:center;justify-content:center;gap:.5rem;margin-bottom:.8rem}
+.transf-cat::before,.transf-cat::after{content:'';width:1.2rem;height:1.5px;background:var(--ouro4)}
+.transf-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;color:#fff;text-align:center;margin-bottom:.5rem;text-shadow:0 2px 16px rgba(0,0,0,.2)}
+.transf-h em{font-style:italic;color:var(--ouro4);font-weight:400}
+.transf-sub{font-size:.8rem;color:rgba(255,255,255,.45);text-align:center;margin-bottom:3rem}
+.transf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-bottom:2.5rem}
+.transf-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:2rem 1.6rem;text-align:center;box-shadow:0 4px 24px rgba(0,0,0,.15)}
+.tc-n{font-family:'Cormorant Garamond',serif;font-size:2.6rem;color:#fff;font-weight:700;display:block;line-height:1;margin-bottom:.2rem;text-shadow:0 2px 12px rgba(0,0,0,.2)}
+.tc-sub{font-size:.68rem;color:rgba(255,255,255,.45);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem;display:block}
+.tc-lista{list-style:none;text-align:left;display:grid;gap:.3rem}
+.tc-lista li{font-size:.76rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:.5rem}
+.tc-lista li::before{content:'✓';color:var(--ouro4);font-size:.7rem;font-weight:700;flex-shrink:0}
+.transf-nota{text-align:center;font-size:.7rem;color:rgba(255,255,255,.3);margin-bottom:2rem;font-style:italic}
+.transf-btn{display:block;margin:0 auto;background:transparent;color:#fff;padding:.75rem 2.2rem;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;border-radius:30px;border:1.5px solid rgba(255,255,255,.3);transition:all .3s;width:fit-content}
+.transf-btn:hover{border-color:var(--ouro4);color:var(--ouro4)}
+
+/* ══ TAGS PILLS ══ */
+.tags-strip{background:var(--bg);padding:2rem 5%;overflow:hidden}
+.tags-track{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;max-width:900px;margin:0 auto}
+.tag-pill{background:#fff;border:1px solid rgba(232,222,206,.9);border-radius:30px;padding:.4rem 1.1rem;font-size:.72rem;color:var(--txt3);font-weight:600;letter-spacing:.04em;white-space:nowrap;transition:border-color .2s,box-shadow .2s;box-shadow:0 1px 8px rgba(42,31,14,.04)}
+.tag-pill:hover{border-color:var(--ouro3);color:var(--ouro);box-shadow:var(--sombra)}
+
+/* ══ DEPOIMENTOS ══ */
+.deps{background:var(--bg);padding:5rem 5%}
+.deps-inner{max-width:1100px;margin:0 auto}
+.deps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3rem}
+.dep{background:#fff;border:1px solid rgba(232,222,206,.8);border-radius:16px;padding:1.8rem 1.6rem;transition:transform .3s,box-shadow .3s;box-shadow:0 2px 16px rgba(42,31,14,.05)}
+.dep:hover{transform:translateY(-4px);box-shadow:var(--sombra2)}
+.dep-hearts{color:var(--ouro3);font-size:.85rem;letter-spacing:.08rem;margin-bottom:1rem}
+.dep-q{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.92rem;color:var(--txt2);line-height:1.65;margin-bottom:1.3rem;font-weight:400}
+.dep-info{border-top:1px solid var(--bg3);padding-top:.8rem;margin-top:.8rem}
+.dep-nome{font-size:.8rem;font-weight:700;color:var(--txt);display:block}
+.dep-detalhe{font-size:.68rem;color:var(--txt4);margin-top:.15rem;display:block}
+.deps-cta-wrap{text-align:center;margin-top:3rem}
+.deps-cta{display:inline-flex;align-items:center;gap:.6rem;background:#fff;border:1.5px solid var(--borda2);border-radius:30px;padding:.65rem 1.8rem;font-size:.78rem;color:var(--txt2);font-weight:700;transition:all .25s;box-shadow:var(--sombra)}
+.deps-cta:hover{border-color:var(--ouro);color:var(--ouro)}
+
+/* ══ FAQ PERGAMINHO ══ */
+.faq-section{background:var(--bg);padding:0 5% 5rem}
+.faq-perg{background:var(--perg);border-radius:28px;padding:4rem 3.5rem;position:relative;overflow:hidden;box-shadow:var(--sombra2);max-width:1000px;margin:0 auto}
+.faq-perg-bg-txt{position:absolute;bottom:-1rem;right:-1rem;font-family:'Cormorant Garamond',serif;font-size:180px;color:rgba(139,101,64,.04);line-height:1;pointer-events:none;font-style:italic;font-weight:700}
+.faq-header{text-align:center;margin-bottom:2.5rem}
+.faq-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:700;text-shadow:0 2px 12px rgba(42,31,14,.08)}
+.faq-h em{font-style:italic;color:var(--ouro);font-weight:400}
+.faq-item{background:rgba(255,255,255,.55);border:1px solid rgba(196,169,106,.2);border-radius:12px;margin-bottom:.7rem;overflow:hidden;transition:background .3s,box-shadow .3s}
+.faq-item.open,.faq-item:hover{background:rgba(255,255,255,.9);box-shadow:0 4px 20px rgba(139,101,64,.08)}
+.faq-q{width:100%;background:none;border:none;text-align:left;padding:1.1rem 1.3rem;display:flex;align-items:center;justify-content:space-between;cursor:pointer;gap:1rem}
+.faq-q-txt{font-size:.88rem;font-weight:700;color:var(--txt2);text-align:left}
+.faq-q:hover .faq-q-txt{color:var(--ouro)}
+.faq-ico{width:22px;height:22px;border-radius:50%;background:var(--ouro5);border:1.5px solid var(--ouro3);display:flex;align-items:center;justify-content:center;color:var(--ouro);font-size:.85rem;flex-shrink:0;transition:transform .3s,background .3s}
+.faq-item.open .faq-ico{transform:rotate(45deg);background:var(--ouro);color:#fff}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.16,1,.3,1)}
+.faq-a-in{padding:0 1.3rem 1.1rem;font-size:.82rem;line-height:1.85;color:var(--txt3)}
+.faq-item.open .faq-a{max-height:200px}
+
+/* ══ AGENDAR / CONTATO ══ */
+.agendar{background:var(--bg);padding:5rem 5%;position:relative}
+.folha-dec{position:absolute;pointer-events:none;opacity:.7}
+.agendar-inner{max-width:780px;margin:0 auto;position:relative;z-index:2}
+.agendar-cat{text-align:center;font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ouro);font-weight:700;margin-bottom:.8rem}
+.agendar-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:700;text-align:center;margin-bottom:.4rem;text-shadow:0 2px 16px rgba(42,31,14,.08)}
+.agendar-h em{font-style:italic;color:var(--ouro);font-weight:400}
+.agendar-sub{text-align:center;font-size:.82rem;color:var(--txt3);margin-bottom:2.5rem}
+.form-card{background:#fff;border:1px solid rgba(232,222,206,.8);border-radius:20px;padding:2.5rem;box-shadow:var(--sombra2)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.2rem}
+.form-group{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.2rem}
+.form-group label{font-size:.72rem;font-weight:700;color:var(--txt2);letter-spacing:.06em}
+.form-input{background:var(--bg);border:1px solid rgba(232,222,206,.9);border-radius:10px;padding:.75rem 1rem;font-size:.85rem;color:var(--txt);font-family:'Nunito Sans',sans-serif;outline:none;transition:border-color .2s,box-shadow .2s;width:100%}
+.form-input:focus{border-color:var(--ouro3);box-shadow:0 0 0 3px rgba(196,169,106,.15)}
+.form-input::placeholder{color:var(--txt4)}
+textarea.form-input{min-height:110px;resize:vertical}
+.form-btn{width:100%;background:var(--ouro);color:#fff;padding:1rem;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;border:none;border-radius:10px;cursor:pointer;transition:all .28s;font-family:'Nunito Sans',sans-serif;box-shadow:var(--sombra)}
+.form-btn:hover{background:var(--ouro2);transform:translateY(-1px);box-shadow:0 8px 24px rgba(143,119,66,.3)}
+.form-contatos{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
+.fc-item{display:flex;align-items:center;gap:.7rem}
+.fc-ico-wrap{width:34px;height:34px;background:var(--bg2);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;box-shadow:0 2px 8px rgba(42,31,14,.06)}
+.fc-label{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--txt4);font-weight:700;display:block}
+.fc-val{font-size:.78rem;color:var(--txt2);font-weight:600;display:block}
+
+/* ══ FOOTER ══ */
+footer{background:var(--txt);padding:3.5rem 5% 2rem}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.07)}
+.f-brand{display:flex;align-items:center;gap:.6rem;margin-bottom:.8rem}
+.f-brand-nome{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--ouro4);font-weight:700}
+.f-desc{font-size:.78rem;line-height:1.75;color:rgba(255,255,255,.35);max-width:260px;margin-bottom:1.2rem}
+.f-socials{display:flex;gap:.5rem}
+.f-soc{width:30px;height:30px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.75rem;color:rgba(255,255,255,.35);text-decoration:none;transition:all .2s}
+.f-soc:hover{background:var(--ouro);color:#fff;border-color:var(--ouro)}
+.f-col-h{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ouro3);font-weight:700;margin-bottom:.9rem}
+.f-col ul{list-style:none;display:grid;gap:.45rem}
+.f-col a{font-size:.76rem;color:rgba(255,255,255,.32);transition:color .2s}
+.f-col a:hover{color:var(--ouro4)}
+.footer-bot{display:flex;align-items:center;justify-content:space-between;padding-top:1.8rem;gap:2rem}
+.f-copy{font-size:.63rem;color:rgba(255,255,255,.18);letter-spacing:.1em}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+<div class="nav-logo">
+   <img src="logomenor.png" class="logo-mini">
+   <span class="nav-nome">Jaqueline <em>Souza</em></span>
+</div>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#agendar">Contato</a></li>
+  </ul>
+  <a href="https://wa.me/5534988775822" class="nav-cta">Agendar Consulta</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-esq">
+    <div class="fi d1"><div class="hero-cat">Nutricionista · Personal Trainer · Bio Check — Araxá/MG</div></div>
+    <h1 class="hero-h1 fi d2">Transforme sua relação com o seu <em>corpo.</em></h1>
+    <p class="hero-desc fi d3">Atendimento personalizado e humanizado para você conquistar seus objetivos de saúde e bem-estar através de uma alimentação equilibrada e treinamento de precisão.</p>
+    <a href="https://wa.me/5534988775822" class="hero-btn fi d4">Agendar Consulta</a>
+    <div class="hero-stats fi d5">
+      <div class="hs-item">
+        <span class="hs-n">5+</span>
+        <span class="hs-l">Anos de experiência</span>
+      </div>
+      <div class="hs-item">
+        <span class="hs-n">98%</span>
+        <span class="hs-l">Satisfação</span>
+      </div>
+      <div class="hs-item">
+        <span class="hs-n">100%</span>
+        <span class="hs-l">Personalizado</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-dir fi">
+    <div class="hero-foto-bg">
+      <img src="CAIO9817.jpg" alt="Jaqueline Souza">
+      <img src="logocompleta.png" class="hero-foto-logo" alt="Logo Jaqueline Souza">
+    </div>
+    <div class="hero-float hf1"><span class="hf-num">01 ✦</span><div class="hf-txt">5 hábitos simples</div><span class="hf-sub">que transformam sua saúde</span></div>
+    <div class="hero-float hf2"><span class="hf-num">02 ✦</span><div class="hf-txt">Equilíbrio & estratégia</div><span class="hf-sub">base científica em cada decisão</span></div>
+    <div class="hero-float hf3"><span class="hf-num">Bio Check</span><div class="hf-txt">Avaliação física</div><span class="hf-sub">dados que guiam resultados</span></div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker"><div class="ticker-track" id="tt"></div></div>
+
+<!-- SOBRE -->
+<section class="sobre" id="sobre">
+  <div class="sobre-inner">
+    <div class="fi">
+      <div class="sobre-card">
+        <div class="sobre-card-topo"><span class="sobre-card-logo">Jaqueline Souza</span></div>
+        <img src="CAIO9274.jpg" class="sobre-foto" alt="Jaqueline Souza">
+      </div>
+    </div>
+    <div class="fi" style="transition-delay:.2s">
+      <div class="sobre-cat">Sobre mim</div>
+      <h2 class="sobre-h">Cuidando da sua saúde com<br><em>dedicação e expertise</em></h2>
+      <p class="sobre-p">Sou nutricionista e personal trainer com pós-graduação em Emagrecimento. Acredito que cada pessoa é única e merece um plano personalizado que respeite suas necessidades, rotina e objetivos.</p>
+      <p class="sobre-p">Minha abordagem vai além da dieta: trabalho para que você desenvolva <strong>uma relação saudável e equilibrada</strong> com a comida, promovendo mudanças sustentáveis e duradouras no seu estilo de vida.</p>
+      <p class="sobre-p">Sócia-proprietária da <strong>Bio Check</strong> — onde dados reais guiam cada estratégia de treino e nutrição. Nada de achismo. Tudo com estratégia, acompanhamento e resultado.</p>
+      <div class="reg-badges">
+        <span class="reg-badge">CRN9 37510</span>
+        <span class="reg-badge">CREF 058.478 G/MG</span>
+      </div>
+      <ul class="cred-lista">
+        <li><span class="cred-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Pós-graduação em Emagrecimento</li>
+        <li><span class="cred-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Personal Trainer — CREF 058.478 G/MG</li>
+        <li><span class="cred-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Sócia-proprietária · Bio Check — Araxá/MG</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- METODOLOGIA -->
+<section class="metod" id="processo">
+  <div class="metod-inner fi">
+    <div class="pergaminho">
+      <div class="perg-folha-bg">🍃</div>
+      <div class="perg-header">
+        <div class="perg-cat">Metodologia</div>
+        <h2 class="perg-h">Como funciona o <em>atendimento</em></h2>
+        <p class="perg-p">Um processo completo e personalizado para garantir seus melhores resultados.</p>
+      </div>
+      <div class="perg-grid">
+        <div class="perg-card"><span class="pc-num">01</span><div class="pc-ico">🔬</div><div class="pc-h">Avaliação Inicial</div><p class="pc-p">Análise completa na Bio Check — composição corporal, força muscular e capacidade cardiovascular.</p></div>
+        <div class="perg-card"><span class="pc-num">02</span><div class="pc-ico">🥗</div><div class="pc-h">Planejamento</div><p class="pc-p">Elaboração do plano alimentar personalizado baseado nos seus dados reais e objetivos de vida.</p></div>
+        <div class="perg-card"><span class="pc-num">03</span><div class="pc-ico">📈</div><div class="pc-h">Acompanhamento</div><p class="pc-p">Programa de treino no app MFit, periodizado e ajustado conforme sua evolução semana a semana.</p></div>
+        <div class="perg-card"><span class="pc-num">04</span><div class="pc-ico">🔄</div><div class="pc-h">Manutenção</div><p class="pc-p">Consultas de retorno e ajustes contínuos para manter os resultados alcançados a longo prazo.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section class="diferenciais" id="diferenciais">
+  <svg style="position:absolute;top:0;right:0;width:180px;opacity:.18;pointer-events:none" viewBox="0 0 200 300"><ellipse cx="130" cy="80" rx="60" ry="100" fill="#7A8565" transform="rotate(-30 130 80)"/><ellipse cx="80" cy="180" rx="45" ry="80" fill="#8F7742" transform="rotate(20 80 180)" opacity=".6"/></svg>
+  <div class="dif-inner fi">
+    <div class="sec-cat">Diferenciais</div>
+    <h2 class="sec-h">Por que escolher <em>meu trabalho</em></h2>
+    <div class="dif-grid">
+      <div class="dif-card"><div class="dif-ico">🤍</div><div class="dif-h">Atendimento Humanizado</div><p class="dif-p">Escuta ativa e acolhimento sem julgamentos. Seu bem-estar emocional é tão importante quanto o físico.</p></div>
+      <div class="dif-card"><div class="dif-ico">🔬</div><div class="dif-h">Baseado em Evidências</div><p class="dif-p">Protocolos científicos atualizados e personalizados para suas necessidades específicas.</p></div>
+      <div class="dif-card"><div class="dif-ico">📱</div><div class="dif-h">Suporte Contínuo</div><p class="dif-p">Acompanhamento via WhatsApp para tirar dúvidas e manter sua motivação em alta.</p></div>
+      <div class="dif-card"><div class="dif-ico">📅</div><div class="dif-h">Flexibilidade</div><p class="dif-p">Planos que se adaptam à sua rotina, sem rigidez excessiva ou proibições radicais.</p></div>
+      <div class="dif-card"><div class="dif-ico">📊</div><div class="dif-h">Resultados Sustentáveis</div><p class="dif-p">Foco em mudanças de hábitos duradouros, não em dietas milagrosas passageiras.</p></div>
+      <div class="dif-card"><div class="dif-ico">👥</div><div class="dif-h">Abordagem Integrativa</div><p class="dif-p">Visão completa da sua saúde, integrando nutrição, estilo de vida e bem-estar físico.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS CAMINHO -->
+<section class="svcs" id="servicos">
+  <div class="svcs-inner">
+    <div class="fi" style="text-align:center;margin-bottom:2.5rem">
+      <div class="sec-cat">Serviços</div>
+      <h2 class="sec-h">Como posso <em>te ajudar</em></h2>
+      <p style="font-size:.82rem;color:var(--txt3);text-align:center">Você escolhe o que faz sentido para o seu momento — de forma individual ou integrada</p>
+    </div>
+    <div class="svcs-wrap fi">
+      <svg class="svcs-path" viewBox="0 0 200 800" fill="none" preserveAspectRatio="none" style="height:100%"><path d="M100 0 C160 100 40 200 100 300 C160 400 40 500 100 600 C160 700 40 750 100 800" stroke="#c4a96a" stroke-width="2" stroke-dasharray="8 6"/></svg>
+      <div class="svc-row fi"><div class="svc-box"><div class="svc-box-h">Consulta Nutricional</div><p class="svc-box-p">Plano alimentar individualizado baseado nos seus dados reais, objetivos e rotina de vida.</p></div><div class="svc-circle">1</div><div style="flex:1"></div></div>
+      <div class="svc-row right fi"><div style="flex:1"></div><div class="svc-circle">2</div><div class="svc-box-alt"><div class="svc-box-h">Treino MFit</div><p class="svc-box-p">Treinamento de força personalizado no app MFit — periodizado e ajustado à sua evolução.</p></div></div>
+      <div class="svc-row fi"><div class="svc-box"><div class="svc-box-h">Avaliação Física Bio</div><p class="svc-box-p">Bioimpedância, fotos e teste de flexibilidade. A base de dados para guiar toda a estratégia.</p></div><div class="svc-circle">3</div><div style="flex:1"></div></div>
+      <div class="svc-row right fi"><div style="flex:1"></div><div class="svc-circle">4</div><div class="svc-box-alt"><div class="svc-box-h">Avaliação Física Plus</div><p class="svc-box-p">Bioimpedância, circunferências, testes de força abdominal, membros e flexibilidade.</p></div></div>
+      <div class="svc-row fi"><div class="svc-box"><div class="svc-box-h">Avaliação Premium</div><p class="svc-box-p">Análise completa com teste cardiovascular (VO²) — a avaliação mais completa da Bio Check.</p></div><div class="svc-circle">5</div><div style="flex:1"></div></div>
+      <div class="svc-row right fi"><div style="flex:1"></div><div class="svc-circle">6</div><div class="svc-box-alt"><div class="svc-box-h">Nutrição + Treino</div><p class="svc-box-p">Pacote completo integrando consulta nutricional e treino para máxima sinergia de resultados.</p></div></div>
+    </div>
+    <div style="text-align:center;margin-top:3rem" class="fi">
+      <a href="https://wa.me/5534988775822" class="hero-btn">Agendar Consulta</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSFORMAÇÕES -->
+<section class="transf" id="resultados">
+  <div class="transf-inner">
+    <div class="fi">
+      <div class="transf-cat">Transformações</div>
+      <h2 class="transf-h">Histórias de <em>sucesso</em></h2>
+      <p class="transf-sub">Veja algumas das transformações conquistadas pelos meus pacientes.</p>
+      <div class="transf-grid">
+        <div class="transf-card"><span class="tc-n">-12kg</span><span class="tc-sub">em 4 meses</span><ul class="tc-lista"><li>Mais energia e disposição</li><li>Melhor qualidade do sono</li><li>Autoestima elevada</li></ul></div>
+        <div class="transf-card"><span class="tc-n">+6kg</span><span class="tc-sub">de massa muscular</span><ul class="tc-lista"><li>Performance elevada</li><li>Recuperação mais rápida</li><li>Definição muscular</li></ul></div>
+        <div class="transf-card"><span class="tc-n">100%</span><span class="tc-sub">satisfação</span><ul class="tc-lista"><li>Hábitos sustentáveis</li><li>Sem dietas restritivas</li><li>Resultado que fica</li></ul></div>
+      </div>
+      <p class="transf-nota">*Resultados podem variar de acordo com cada indivíduo.</p>
+      <a href="https://wa.me/5534988775822" class="transf-btn">Quero ter meus resultados</a>
+    </div>
+  </div>
+</section>
+
+<!-- TAGS -->
+<div class="tags-strip"><div class="tags-track fi"><span class="tag-pill">Emagrecimento saudável</span><span class="tag-pill">Reeducação alimentar</span><span class="tag-pill">Equilíbrio metabólico</span><span class="tag-pill">Plano personalizado</span><span class="tag-pill">Nutrição funcional</span><span class="tag-pill">Saúde intestinal</span><span class="tag-pill">Treino de força</span><span class="tag-pill">Bio Check</span><span class="tag-pill">App MFit</span><span class="tag-pill">Composição corporal</span></div></div>
+
+<!-- DEPOIMENTOS -->
+<section class="deps" id="depoimentos">
+  <div class="deps-inner">
+    <div class="fi" style="text-align:center"><div class="sec-cat">Depoimentos</div><h2 class="sec-h">O que meus <em>pacientes dizem</em></h2></div>
+    <div class="deps-grid">
+      <div class="dep fi"><div class="dep-hearts">♥♥♥♥♥</div><p class="dep-q">"A Jaqueline mudou completamente minha relação com a comida. Emagreci de forma saudável e sem sofrimento. Recomendo demais!"</p><div class="dep-info"><span class="dep-nome">Maria Fernanda</span><span class="dep-detalhe">32 anos · Emagrecimento saudável</span></div></div>
+      <div class="dep fi" style="transition-delay:.1s"><div class="dep-hearts">♥♥♥♥♥</div><p class="dep-q">"Como atleta, precisava de acompanhamento especializado. O treino no MFit melhorou muito meu desempenho. Resultados incríveis!"</p><div class="dep-info"><span class="dep-nome">Carlos Santos</span><span class="dep-detalhe">28 anos · Treino MFit</span></div></div>
+      <div class="dep fi" style="transition-delay:.2s"><div class="dep-hearts">♥♥♥♥♥</div><p class="dep-q">"Finalmente encontrei uma profissional que me entende. Atendimento humanizado, resultados reais. É diferente de tudo que já tentei!"</p><div class="dep-info"><span class="dep-nome">Carla Oliveira</span><span class="dep-detalhe">40 anos · Mais qualidade de vida</span></div></div>
+      <div class="dep fi" style="transition-delay:.1s"><div class="dep-hearts">♥♥♥♥♥</div><p class="dep-q">"A avaliação na Bio Check foi reveladora. Pela primeira vez entendi meu corpo de verdade e tive um plano que faz sentido pra minha vida."</p><div class="dep-info"><span class="dep-nome">Ana Paula</span><span class="dep-detalhe">35 anos · Bio Check Premium</span></div></div>
+      <div class="dep fi" style="transition-delay:.2s"><div class="dep-hearts">♥♥♥♥♥</div><p class="dep-q">"O acompanhamento durante minha gravidez foi perfeito. Me senti segura e bem cuidada em cada consulta. Altamente recomendada!"</p><div class="dep-info"><span class="dep-nome">Juliana Mendes</span><span class="dep-detalhe">26 anos · Gestação saudável</span></div></div>
+      <div class="dep fi" style="transition-delay:.3s"><div class="dep-hearts">♥♥♥♥♥</div><p class="dep-q">"Ganhei massa muscular e melhorei minha composição corporal em poucos meses. Método sério, com estratégia e resultado real!"</p><div class="dep-info"><span class="dep-nome">Roberto Lima</span><span class="dep-detalhe">38 anos · Ganho de massa muscular</span></div></div>
+    </div>
+    <div class="deps-cta-wrap fi">
+      <a href="https://wa.me/5534988775822" class="deps-cta">💬 Jaqueline, quero falar com você</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="faq-perg fi">
+    <div class="faq-perg-bg-txt">?</div>
+    <div class="faq-header"><div class="sec-cat">Dúvidas Frequentes</div><h2 class="faq-h">Perguntas e <em>respostas</em></h2></div>
+    <div class="faq-item"><button class="faq-q"><span class="faq-q-txt">O atendimento é presencial ou online?</span><span class="faq-ico">+</span></button><div class="faq-a"><div class="faq-a-in">Atendo nas duas modalidades. A consulta nutricional pode ser presencial ou online. As avaliações físicas da Bio Check são presenciais em Araxá/MG.</div></div></div>
+    <div class="faq-item"><button class="faq-q"><span class="faq-q-txt">Quanto tempo dura uma consulta?</span><span class="faq-ico">+</span></button><div class="faq-a"><div class="faq-a-in">A primeira consulta tem duração de aproximadamente 1 hora. Os retornos duram em média 30 a 40 minutos — tempo suficiente para avaliar sua evolução e fazer os ajustes necessários.</div></div></div>
+    <div class="faq-item"><button class="faq-q"><span class="faq-q-txt">Como funciona o treino pelo app MFit?</span><span class="faq-ico">+</span></button><div class="faq-a"><div class="faq-a-in">Você recebe seu programa personalizado no app com exercícios, séries, cargas e vídeos demonstrativos. Treina no seu ritmo e eu acompanho sua evolução remotamente, fazendo ajustes conforme necessário.</div></div></div>
+    <div class="faq-item"><button class="faq-q"><span class="faq-q-txt">O que está incluso na consulta de nutrição?</span><span class="faq-ico">+</span></button><div class="faq-a"><div class="faq-a-in">Avaliação nutricional completa, dobras cutâneas, plano alimentar personalizado e a Avaliação Física Bio da Bio Check. Também está inclusa a reavaliação de retorno em 60 dias.</div></div></div>
+    <div class="faq-item"><button class="faq-q"><span class="faq-q-txt">Posso tirar dúvidas entre as consultas?</span><span class="faq-ico">+</span></button><div class="faq-a"><div class="faq-a-in">Sim! Você terá acesso ao meu WhatsApp para tirar dúvidas pontuais e receber suporte durante todo o acompanhamento. O cuidado é contínuo e humanizado.</div></div></div>
+    <div class="faq-item"><button class="faq-q"><span class="faq-q-txt">Com que frequência preciso fazer retorno?</span><span class="faq-ico">+</span></button><div class="faq-a"><div class="faq-a-in">O retorno da consulta nutricional é em 60 dias. Para avaliações físicas da Bio Check, o retorno é em 45 ou 60 dias para análise de evolução e ajustes da estratégia.</div></div></div>
+  </div>
+</section>
+
+<!-- AGENDAR -->
+<section class="agendar" id="agendar">
+  <svg class="folha-dec" style="top:10%;left:5%;width:90px" viewBox="0 0 120 200" fill="none"><ellipse cx="60" cy="100" rx="50" ry="90" fill="#7A8565" transform="rotate(-20 60 100)"/><line x1="60" y1="10" x2="60" y2="190" stroke="#5a6b4f" stroke-width="1.5" opacity=".4"/></svg>
+  <svg class="folha-dec" style="top:15%;right:4%;width:80px" viewBox="0 0 120 200" fill="none"><ellipse cx="60" cy="100" rx="45" ry="85" fill="#7A8565" transform="rotate(25 60 100)"/></svg>
+  <svg class="folha-dec" style="bottom:8%;right:6%;width:70px" viewBox="0 0 120 200" fill="none"><ellipse cx="60" cy="100" rx="40" ry="75" fill="#8F7742" transform="rotate(-15 60 100)" opacity=".7"/></svg>
+  <div class="agendar-inner fi">
+    <div class="agendar-cat">Contato</div>
+    <h2 class="agendar-h">Agende sua <em>consulta</em></h2>
+    <p class="agendar-sub">Entre em contato e dê o primeiro passo para transformar sua saúde</p>
+    <div class="form-card">
+      <div class="form-row">
+        <div style="display:flex;flex-direction:column;gap:.4rem"><label style="font-size:.72rem;font-weight:700;color:var(--txt2)">Nome</label><input type="text" placeholder="Seu nome completo" class="form-input"></div>
+        <div style="display:flex;flex-direction:column;gap:.4rem"><label style="font-size:.72rem;font-weight:700;color:var(--txt2)">Telefone</label><input type="text" placeholder="(00) 00000-0000" class="form-input"></div>
+      </div>
+      <div class="form-group"><label>E-mail</label><input type="email" placeholder="seu@email.com" class="form-input"></div>
+      <div class="form-group"><label>Mensagem</label><textarea class="form-input" placeholder="Conte-me um pouco sobre seus objetivos..."></textarea></div>
+      <!-- Botão leva direto ao WhatsApp -->
+      <button class="form-btn" onclick="window.open('https://wa.me/5534988775822?text=Olá%20Jaqueline!%20Quero%20agendar%20uma%20consulta.','_blank')">Enviar Mensagem via WhatsApp</button>
+      <div class="form-contatos">
+        <div class="fc-item"><div class="fc-ico-wrap">💬</div><div><span class="fc-label">WhatsApp</span><span class="fc-val">(34) 98877-5822</span></div></div>
+        <div class="fc-item"><div class="fc-ico-wrap">✉️</div><div><span class="fc-label">E-mail</span><span class="fc-val">jaqueline.sousa85@gmail.com</span></div></div>
+        <div class="fc-item"><div class="fc-ico-wrap">📷</div><div><span class="fc-label">Instagram</span><a href="https://www.instagram.com/jaque_nutri_personal" target="_blank" style="font-size:.78rem;color:var(--ouro);font-weight:600">@jaque_nutri_personal</a></div></div>
+        <div class="fc-item"><div class="fc-ico-wrap">📍</div><div><span class="fc-label">Localização</span><span class="fc-val">Araxá, Minas Gerais</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="f-brand"><span class="f-brand-nome">Jaqueline Souza</span></div>
+      <p class="f-desc">Nutricionista (CRN9 37510) e Personal Trainer (CREF 058.478 G/MG) especializada em emagrecimento e atendimento humanizado, baseado em evidências e dados reais do seu corpo.</p>
+      <div class="f-socials">
+        <a href="https://www.instagram.com/jaque_nutri_personal" target="_blank" class="f-soc">ig</a>
+        <a href="mailto:jaqueline.sousa85@gmail.com" class="f-soc">✉</a>
+        <a href="https://wa.me/5534988775822" target="_blank" class="f-soc">📱</a>
+      </div>
+    </div>
+    <div class="f-col">
+      <div class="f-col-h">Links Rápidos</div>
+      <ul>
+        <li><a href="#sobre">Sobre mim</a></li>
+        <li><a href="#processo">Metodologia</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <div class="f-col-h">Atendimento</div>
+      <ul>
+        <li><a href="#">Segunda a Sexta</a></li>
+        <li><a href="#">8h às 18h</a></li>
+        <li><a href="#">Sábados 8h às 12h</a></li>
+        <li><a href="#">Presencial e Online</a></li>
+        <li><a href="https://wa.me/5534988775822" target="_blank">(34) 98877-5822</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <span class="f-copy">© 2025 · Jaqueline Souza · CRN9 37510 · CREF 058.478 G/MG · Nutrição & Treinamento · Bio Check</span>
+    <span class="f-copy">Todos os direitos reservados</span>
+  </div>
+</footer>
+
+<script>
+const words=[{ico:'🥗',txt:'Alimentação Saudável'},{ico:'🤍',txt:'Saúde e Bem-Estar'},{ico:'🌿',txt:'Nutrição Funcional'},{ico:'📉',txt:'Emagrecimento'},{ico:'💧',txt:'Hidratação'},{ico:'✅',txt:'Qualidade de Vida'},{ico:'⚖️',txt:'Equilíbrio Nutricional'},{ico:'🔬',txt:'Bio Check'},{ico:'🏋️',txt:'Treinamento de Força'},{ico:'📱',txt:'App MFit'}];
+const tt=document.getElementById('tt');
+const html=words.map(w=>`<span class="tick-item"><span class="tick-ico">${w.ico}</span>${w.txt}<span class="tick-dot"></span></span>`).join('');
+tt.innerHTML=html+html+html;
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');io.unobserve(e.target)}})},{threshold:.07});
+document.querySelectorAll('.fi').forEach(el=>io.observe(el));
+document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',()=>{const it=btn.parentElement,op=it.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!op)it.classList.add('open');});});
+</script>
+</body>
+</html>
